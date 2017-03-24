@@ -12,16 +12,9 @@ import cameraShotHandler from '../handlers/CameraShotHandle';
 export default class MainView extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Camera ref={cam => {
-          this.camera = cam;
-        }}
-          style={styles.camera}
-          aspect={Camera.constants.Aspect.fill}
-          type={'front'}
-        />
-        <Text style={styles.capture} onPress={() => cameraShotHandler(this.camera)}>[CAPTURE]</Text>
-      </View>
+        <Text>
+            Lol otit kuvan
+        </Text>
     );
   }
 }

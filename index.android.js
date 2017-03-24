@@ -12,14 +12,17 @@ import {
   View
 } from 'react-native';
 
-import MainView from './src/views/MainView';
+import Navigator from 'native-navigation';
 
-export default class Tarant extends Component {
+
+class Home extends Component {
   render() {
-    return (
-      <MainView />
-    );
+    Navigator.present('mainView');
+    return null;
   }
 }
 
-AppRegistry.registerComponent('Tarant', () => Tarant);
+Navigator.registerScreen('mainView', () => require('./src/views/MainView'));
+Navigator.registerScreen('pictureTakenView', () => require('./src/views/PictureTakenView'));
+
+AppRegistry.registerComponent('Home', () => Home);
