@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 import CameraShutterButton from './CameraShutterButton';
+const {CaptureTarget} = Camera.constants;
 
 import Navigator from 'native-navigation';
 
@@ -28,7 +29,7 @@ export default class MainView extends Component {
   }
 
   onCameraShutterButtonPress() {
-    this.camera.capture()
+    this.camera.capture({target: CaptureTarget.temp})
       .then(data => {
         Navigator.present('pictureTakenView');
         ToastAndroid.show("Image taken", ToastAndroid.SHORT);
