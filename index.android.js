@@ -11,32 +11,15 @@ import {
   Text,
   View
 } from 'react-native';
-import Camera from 'react-native-camera';
+
+import MainView from './src/views/MainView';
 
 export default class Tarant extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Camera
-          style={styles.camera}
-          aspect={Camera.constants.Aspect.fill}
-        />
-      </View>
+      <MainView />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'red',
-  },
-  camera: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
-  }
-});
 
 AppRegistry.registerComponent('Tarant', () => Tarant);
