@@ -6,6 +6,7 @@ import {
   View
 } from 'react-native';
 import Camera from 'react-native-camera';
+import CameraShutterButton from './CameraShutterButton';
 
 import cameraShotHandler from '../handlers/CameraShotHandle';
 
@@ -20,7 +21,7 @@ export default class MainView extends Component {
           aspect={Camera.constants.Aspect.fill}
           type={'front'}
         />
-        <Text style={styles.capture} onPress={() => cameraShotHandler(this.camera)}>[CAPTURE]</Text>
+        <CameraShutterButton onPress={() => cameraShotHandler(this.camera)} />
       </View>
     );
   }
@@ -32,17 +33,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: 'red',
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40,
-    position: 'absolute',
-    left: 0,
-    right: 0,
   },
   camera: {
     flex: 1,
