@@ -7,8 +7,6 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 
-import cameraShotHandler from '../handlers/CameraShotHandle';
-
 export default class MainView extends Component {
   render() {
     return (
