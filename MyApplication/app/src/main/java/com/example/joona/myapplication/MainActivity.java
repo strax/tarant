@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
             if (bitmap == null) {
                 System.out.println("Bitmap doesn't exist");
             }
-            blur(bitmap);
-            setImageViewImage(bitmap);
+            Bitmap tarantBitmap = blur(bitmap);
+            setImageViewImage(tarantBitmap);
         }
     }
 
@@ -54,8 +54,34 @@ public class MainActivity extends AppCompatActivity {
         return BitmapFactory.decodeFile(new File(extStorageDir, "test.jpg").getAbsolutePath());
     }
 
-    private void blur(Bitmap bitmap) {
+    private Bitmap blur(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int stride = width;
 
+        int[] pixels = new int[width * height];
+        bitmap.getPixels(
+                pixels,
+                0,
+                stride,
+                0,
+                0,
+                width,
+                height
+        );
+        // 0xAARRGGBB
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                int index = x + (y * stride);
+                pixels[index] |= 0x00FF0000; // make it reddddd
+            }
+        }
+        return Bitmap.createBitmap(pixels,
+                0,
+                stride,
+                width,
+                height,
+                Bitmap.Config.ARGB_8888);
     }
 
     private void saveTarantToSdcard() {
