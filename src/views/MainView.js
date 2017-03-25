@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 import CameraShutterButton from './CameraShutterButton';
+import SettingsButton from './SettingsButton';
 const {CaptureTarget} = Camera.constants;
 
 import Navigator from 'native-navigation';
@@ -24,6 +25,7 @@ export default class MainView extends Component {
           type={'front'}
         />
         <CameraShutterButton onPress={() => this.onCameraShutterButtonPress()} />
+        <SettingsButton onPress={() => this.onSettingsButtonPress()} />
       </View>
     );
   }
@@ -44,6 +46,11 @@ export default class MainView extends Component {
         ToastAndroid.show(error, ToastAndroid.LONG);
       });
   }
+
+  onSettingsButtonPress() {
+    Navigator.present('settingsView');
+  }
+
 }
 
 

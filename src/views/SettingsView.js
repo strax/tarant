@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableNativeFeedback, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import Camera from 'react-native-camera';
 
-export default class CameraShutterButton extends Component {
+export default class SettingsView extends Component {
   render() {
     return (
-      <ScrollView>
-        <Text />
-      </ScrollView>
-    )
+        <Text>
+            Settings
+        </Text>
+    );
   }
 }
 
-const styles = {
+
+const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'red',
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    color: '#000',
+    padding: 10,
+    margin: 40,
     position: 'absolute',
-    top: 0,
-    bottom: 0,
     left: 0,
     right: 0,
+  },
+  camera: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end'
-  },
-  buttonContainer: {
-    borderRadius: 100,
-    marginBottom: 20,
-    backgroundColor: 'rgba(0,0,0,0.4)',
-  },
-  button: {
-    padding: 10,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   }
-}
+});
