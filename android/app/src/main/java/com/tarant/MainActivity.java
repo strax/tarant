@@ -1,6 +1,6 @@
 package com.tarant;
 
-import com.facebook.react.ReactActivity;
+import com.airbnb.android.react.navigation.ReactActivity;
 
 public class MainActivity extends ReactActivity {
 
@@ -9,7 +9,7 @@ public class MainActivity extends ReactActivity {
      * This is used to schedule rendering of the component.
      */
     @Override
-    protected String getMainComponentName() {
-        return "Tarant";
+    protected String getInitialScreenName() {
+        return "Home";
     }
 }

@@ -3,11 +3,18 @@ package com.tarant;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+
+import com.airbnb.android.react.navigation.NativeNavigationPackage;
+import com.airbnb.android.react.navigation.ReactNavigationCoordinator;
+
+import com.projectseptember.RNGL.RNGLPackage;
+ 
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +31,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RCTCameraPackage()
+          new NativeNavigationPackage(),
+            new VectorIconsPackage(),
+            new RCTCameraPackage(),
+            new RNGLPackage()
       );
     }
   };
@@ -38,5 +48,8 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    ReactNavigationCoordinator coordinator = ReactNavigationCoordinator.sharedInstance;
+    coordinator.injectReactInstanceManager(mReactNativeHost.getReactInstanceManager());
+    coordinator.start(this);
   }
 }

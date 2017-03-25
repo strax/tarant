@@ -3,26 +3,46 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ToastAndroid
 } from 'react-native';
 import Camera from 'react-native-camera';
+import CameraShutterButton from './CameraShutterButton';
+const {CaptureTarget} = Camera.constants;
 
-import cameraShotHandler from '../handlers/CameraShotHandle';
+import Navigator from 'native-navigation';
 
 export default class MainView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Camera ref={cam => {
-          this.camera = cam;
+        <Camera ref={ref => {
+          this.camera = ref;
         }}
           style={styles.camera}
           aspect={Camera.constants.Aspect.fill}
           type={'front'}
         />
-        <Text style={styles.capture} onPress={() => cameraShotHandler(this.camera)}>[CAPTURE]</Text>
+        <CameraShutterButton onPress={() => this.onCameraShutterButtonPress()} />
       </View>
     );
+  }
+
+  onCameraShutterButtonPress() {
+    this.camera.capture({target: CaptureTarget.temp})
+      .then(data => {
+        Navigator.present('pictureTakenView', {
+          image: data,
+          width: 600,
+          height: 800
+        });
+        ToastAndroid.show("Image taken", ToastAndroid.SHORT);
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+        ToastAndroid.show(error, ToastAndroid.LONG);
+      });
   }
 }
 
@@ -31,15 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'red',
-  },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
+    backgroundColor: '#444',
   },
   camera: {
     flex: 1,
