@@ -17,7 +17,6 @@ export default class MainView extends Component {
       <Surface width={400} height={600}>
         <GLView image={this.props.image.path} />
       </Surface>
-
     );
   }
 }

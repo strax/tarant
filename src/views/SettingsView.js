@@ -3,16 +3,35 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Slider
 } from 'react-native';
 import Camera from 'react-native-camera';
 
 export default class SettingsView extends Component {
   render() {
+    let self = this;
     return (
-        <Text>
-            Settings
+      <View>
+        <Text style={styles.settingtext}>
+          Täränt amount
         </Text>
+        <Slider value={Settings ? Settings.blur : 0} onValueChange={val => {
+          Settings.blur = val;
+        }} />
+        <Text style={styles.settingtext}>
+          X Direction
+        </Text>
+        <Slider value={Settings ? Settings.dirx : 0} onValueChange={val => {
+          Settings.dirx = val;
+        }} />
+        <Text style={styles.settingtext}>
+          Y Direction
+        </Text>
+        <Slider value={Settings ? Settings.diry : 0} onValueChange={val => {
+          Settings.diry = val;
+        }} />
+      </View>
     );
   }
 }
@@ -39,5 +58,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center'
+  },
+  settingtext: {
+    fontSize: 20
   }
 });
