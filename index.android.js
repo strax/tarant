@@ -24,5 +24,6 @@ class Home extends Component {
 
 Navigator.registerScreen('mainView', () => require('./src/views/MainView'));
 Navigator.registerScreen('pictureTakenView', () => require('./src/views/PictureTakenView'));
+Navigator.registerScreen('settingsView', () => require('./src/views/SettingsView'));
 
 AppRegistry.registerComponent('Home', () => Home);
