@@ -14,6 +14,12 @@ import {
 
 import Navigator from 'native-navigation';
 
+// Oh god
+global.Settings = {
+  blur: 1.0,
+  dirx: 1.0,
+  diry: 1.0
+};
 
 class Home extends Component {
   render() {

@@ -41,7 +41,7 @@ module.exports = GL.createComponent(
     uniforms={{
       image,
       blur: Settings.blur / 5,
-      dirx: Settings.dirx * 0.1,
-      diry: Settings.diry * 0.1  
+      dirx: Settings.dirx * (0.1 * Settings.blur),
+      diry: Settings.diry * (0.1 * Settings.blur)  
     }} />,
   { displayName: "HelloGL" });
