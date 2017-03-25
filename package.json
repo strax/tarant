@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "gl-react": "2.2.10",
+    "gl-react-native": "2.42.1",
     "native-navigation": "^0.1.0",
     "react": "~15.4.1",
-    "react-native": "0.42.3",
+    "react-native": "*",
     "react-native-camera": "^0.6.0",
     "react-native-material-design": "^0.3.7",
     "react-native-vector-icons": "^4.0.0"

@@ -31,7 +31,11 @@ export default class MainView extends Component {
   onCameraShutterButtonPress() {
     this.camera.capture({target: CaptureTarget.temp})
       .then(data => {
-        Navigator.present('pictureTakenView');
+        Navigator.present('pictureTakenView', {
+          image: data,
+          width: 600,
+          height: 800
+        });
         ToastAndroid.show("Image taken", ToastAndroid.SHORT);
         console.log(data);
       })

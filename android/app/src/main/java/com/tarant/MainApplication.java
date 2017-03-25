@@ -13,6 +13,8 @@ import com.facebook.soloader.SoLoader;
 import com.airbnb.android.react.navigation.NativeNavigationPackage;
 import com.airbnb.android.react.navigation.ReactNavigationCoordinator;
 
+import com.projectseptember.RNGL.RNGLPackage;
+ 
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,7 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new NativeNavigationPackage(),
             new VectorIconsPackage(),
-            new RCTCameraPackage()
+            new RCTCameraPackage(),
+            new RNGLPackage()
       );
     }
   };

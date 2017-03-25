@@ -7,12 +7,17 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 
+import GLView from '../engine/process';
+
+const {Surface} = require("gl-react-native");
+
 export default class MainView extends Component {
   render() {
     return (
-        <Text>
-            Lol otit kuvan
-        </Text>
+      <Surface width={400} height={600}>
+        <GLView image={this.props.image.path} />
+      </Surface>
+
     );
   }
 }
